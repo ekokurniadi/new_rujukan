@@ -10,7 +10,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                <?php echo anchor(site_url('surat_bpjs/create'),'<i class="fa fa-plus"></i> Add New', 'class="btn btn-icon icon-left btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('surat_bpjs/create'),'<i class="fa fa-plus"></i> Add New', 'class="btn btn-icon icon-left btn-primary"'); ?> -->
                     <small><?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?></small>
                 </h2>
                 <ul class="header-dropdown m-r--5">
@@ -74,7 +74,7 @@
 				echo '  '; 
 				echo anchor(site_url('surat_bpjs/update/'.$surat_bpjs->id),'<i class="material-icons">loyalty</i>',array('title'=>'edit','class'=>'btn btn-icon icon-left btn-warning')); 
 				echo '  '; 
-				echo anchor(site_url('surat_bpjs/delete/'.$surat_bpjs->id),'<i class="material-icons">delete_sweep</i>','title="delete" class="btn btn-icon icon-left btn-danger" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+				// echo anchor(site_url('surat_bpjs/delete/'.$surat_bpjs->id),'<i class="material-icons">delete_sweep</i>','title="delete" class="btn btn-icon icon-left btn-danger" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 				?>
 			</td>
 		</tr>
