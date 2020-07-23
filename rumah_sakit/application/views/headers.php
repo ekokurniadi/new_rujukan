@@ -145,24 +145,23 @@
                     </li>
                     <?php if($_SESSION['terima_bpjs']=='YA'){?>
                     <li>
-                        <a href="<?php echo base_url('surat_umum')?>">
+                        <a href="<?php echo base_url('surat_umum')?>"><span><p id="umum"></p></span>
                             <i class="material-icons">notifications</i>
-                            <span><p id="umum"></p></span>
+                          
                             <span>Rujukan UMUM</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('surat_bpjs')?>">
+                        <a href="<?php echo base_url('surat_bpjs')?>"><span><p id="bpjs"></p></span>
                             <i class="material-icons">notifications</i>
-                            <span><p id="bpjs"></p></span>
+                          
                             <span>Rujukan BPJS</span>
                         </a>
                     </li>
                     <?php } else { ?>
                         <li>
-                        <a href="<?php echo base_url('surat_umum')?>">
+                        <a href="<?php echo base_url('surat_umum')?>"><span><p id="umum"></p></span>
                             <i class="material-icons">notifications</i>
-                            <span><p id="umum"></p></span>
                             <span>Rujukan UMUM</span>
                         </a>
                     </li>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Apr 2020 pada 08.36
--- Versi server: 10.1.34-MariaDB
--- Versi PHP: 5.6.37
+-- Generation Time: Jul 23, 2020 at 12:13 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_diagnosa`
+-- Table structure for table `detail_diagnosa`
 --
 
 CREATE TABLE `detail_diagnosa` (
@@ -35,7 +35,7 @@ CREATE TABLE `detail_diagnosa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_diagnosa`
+-- Dumping data for table `detail_diagnosa`
 --
 
 INSERT INTO `detail_diagnosa` (`id`, `no_surat`, `diagnosa`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `detail_diagnosa` (`id`, `no_surat`, `diagnosa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_obat`
+-- Table structure for table `detail_obat`
 --
 
 CREATE TABLE `detail_obat` (
@@ -55,7 +55,7 @@ CREATE TABLE `detail_obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_obat`
+-- Dumping data for table `detail_obat`
 --
 
 INSERT INTO `detail_obat` (`id`, `no_surat`, `obat`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `detail_obat` (`id`, `no_surat`, `obat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_pemeriksaan`
+-- Table structure for table `detail_pemeriksaan`
 --
 
 CREATE TABLE `detail_pemeriksaan` (
@@ -75,7 +75,7 @@ CREATE TABLE `detail_pemeriksaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_pemeriksaan`
+-- Dumping data for table `detail_pemeriksaan`
 --
 
 INSERT INTO `detail_pemeriksaan` (`id`, `no_surat`, `pemeriksaan`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `detail_pemeriksaan` (`id`, `no_surat`, `pemeriksaan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_penyakit`
+-- Table structure for table `detail_penyakit`
 --
 
 CREATE TABLE `detail_penyakit` (
@@ -95,7 +95,7 @@ CREATE TABLE `detail_penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_penyakit`
+-- Dumping data for table `detail_penyakit`
 --
 
 INSERT INTO `detail_penyakit` (`id`, `no_surat`, `penyakit`) VALUES
@@ -106,7 +106,7 @@ INSERT INTO `detail_penyakit` (`id`, `no_surat`, `penyakit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_umum`
+-- Table structure for table `detail_umum`
 --
 
 CREATE TABLE `detail_umum` (
@@ -120,7 +120,7 @@ CREATE TABLE `detail_umum` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `diagnosa`
+-- Table structure for table `diagnosa`
 --
 
 CREATE TABLE `diagnosa` (
@@ -129,7 +129,7 @@ CREATE TABLE `diagnosa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `diagnosa`
+-- Dumping data for table `diagnosa`
 --
 
 INSERT INTO `diagnosa` (`id`, `diagnosa`) VALUES
@@ -139,7 +139,7 @@ INSERT INTO `diagnosa` (`id`, `diagnosa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jabatan`
+-- Table structure for table `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -149,7 +149,7 @@ CREATE TABLE `jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jabatan`
+-- Dumping data for table `jabatan`
 --
 
 INSERT INTO `jabatan` (`id`, `kode_jabatan`, `jabatan`) VALUES
@@ -160,7 +160,7 @@ INSERT INTO `jabatan` (`id`, `kode_jabatan`, `jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `obat`
+-- Table structure for table `obat`
 --
 
 CREATE TABLE `obat` (
@@ -169,7 +169,7 @@ CREATE TABLE `obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `obat`
+-- Dumping data for table `obat`
 --
 
 INSERT INTO `obat` (`id`, `obat`) VALUES
@@ -180,7 +180,7 @@ INSERT INTO `obat` (`id`, `obat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pasien`
+-- Table structure for table `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -192,23 +192,23 @@ CREATE TABLE `pasien` (
   `nama_pasien` varchar(100) NOT NULL,
   `jenis_kelamin` varchar(50) NOT NULL,
   `usia` double NOT NULL DEFAULT '0',
-  `alamat` text NOT NULL,
+  `alamat` varchar(100) NOT NULL,
   `no_hp` varchar(20) NOT NULL,
   `tanggal_daftar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pasien`
+-- Dumping data for table `pasien`
 --
 
 INSERT INTO `pasien` (`id`, `kode_pasien`, `no_identitas`, `kategori_pasien`, `no_bpjs`, `nama_pasien`, `jenis_kelamin`, `usia`, `alamat`, `no_hp`, `tanggal_daftar`) VALUES
 (4, 'PSN-002', '15710202020900514', 'BPJS', '1234567891021', 'Ridho', 'Pria', 10, '<p>Jambi</p>', '085522523366', '2020-04-14'),
-(5, 'PSN-003', '222', 'BPJS', '5555', 'Siska', 'Wanita', 15, '<p>Jakarta</p>', '085296072649', '2020-04-17');
+(5, 'PSN-003', '222', 'UMUM', '', 'Siska', 'Wanita', 15, '<p>Jakarta</p>', '085296072649', '2020-04-17');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pasien_bpjs`
+-- Table structure for table `pasien_bpjs`
 --
 
 CREATE TABLE `pasien_bpjs` (
@@ -227,7 +227,7 @@ CREATE TABLE `pasien_bpjs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -243,7 +243,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id`, `nip`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `agama`, `alamat`, `no_telp`, `jabatan`) VALUES
@@ -252,7 +252,7 @@ INSERT INTO `pegawai` (`id`, `nip`, `nama_lengkap`, `jenis_kelamin`, `tanggal_la
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemeriksaan_fisik`
+-- Table structure for table `pemeriksaan_fisik`
 --
 
 CREATE TABLE `pemeriksaan_fisik` (
@@ -261,7 +261,7 @@ CREATE TABLE `pemeriksaan_fisik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pemeriksaan_fisik`
+-- Dumping data for table `pemeriksaan_fisik`
 --
 
 INSERT INTO `pemeriksaan_fisik` (`id`, `pemeriksaan`) VALUES
@@ -271,7 +271,7 @@ INSERT INTO `pemeriksaan_fisik` (`id`, `pemeriksaan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyakit`
+-- Table structure for table `penyakit`
 --
 
 CREATE TABLE `penyakit` (
@@ -281,7 +281,7 @@ CREATE TABLE `penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penyakit`
+-- Dumping data for table `penyakit`
 --
 
 INSERT INTO `penyakit` (`id`, `kode_penyakit`, `penyakit`) VALUES
@@ -292,7 +292,7 @@ INSERT INTO `penyakit` (`id`, `kode_penyakit`, `penyakit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `poli`
+-- Table structure for table `poli`
 --
 
 CREATE TABLE `poli` (
@@ -302,7 +302,7 @@ CREATE TABLE `poli` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `poli`
+-- Dumping data for table `poli`
 --
 
 INSERT INTO `poli` (`id`, `kode_poli`, `nama_poli`) VALUES
@@ -312,7 +312,7 @@ INSERT INTO `poli` (`id`, `kode_poli`, `nama_poli`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rumah_sakit_rujukan`
+-- Table structure for table `rumah_sakit_rujukan`
 --
 
 CREATE TABLE `rumah_sakit_rujukan` (
@@ -320,21 +320,23 @@ CREATE TABLE `rumah_sakit_rujukan` (
   `kode_rumah_sakit` varchar(50) NOT NULL,
   `nama_rumah_sakit` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
-  `terima_bpjs` enum('YA','TIDAK') NOT NULL DEFAULT 'TIDAK'
+  `terima_bpjs` enum('YA','TIDAK') NOT NULL DEFAULT 'TIDAK',
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `rumah_sakit_rujukan`
+-- Dumping data for table `rumah_sakit_rujukan`
 --
 
-INSERT INTO `rumah_sakit_rujukan` (`id`, `kode_rumah_sakit`, `nama_rumah_sakit`, `alamat`, `terima_bpjs`) VALUES
-(1, 'RS-001', 'RS Baiturahim', '<p>Lebak Bandung</p>', 'YA'),
-(2, 'RS-002', 'RS Siloam Hospital', '<p>Thehok</p>', 'TIDAK');
+INSERT INTO `rumah_sakit_rujukan` (`id`, `kode_rumah_sakit`, `nama_rumah_sakit`, `alamat`, `terima_bpjs`, `username`, `password`) VALUES
+(1, 'RS-001', 'RS Baiturahim', '<p>Lebak Bandung</p>', 'YA', '', ''),
+(2, 'RS-002', 'RS Siloam Hospital', '<p>Thehok</p>', 'YA', 'siloam', 'siloam');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_bpjs`
+-- Table structure for table `surat_bpjs`
 --
 
 CREATE TABLE `surat_bpjs` (
@@ -345,26 +347,28 @@ CREATE TABLE `surat_bpjs` (
   `nama_pasien` varchar(100) NOT NULL,
   `umur` int(5) NOT NULL,
   `jenis_kelamin` varchar(20) NOT NULL,
-  `alamat` text NOT NULL,
+  `alamat` varchar(100) NOT NULL,
   `no_kartu` varchar(50) NOT NULL,
   `kode_rumah_sakit` varchar(50) NOT NULL,
   `nama_rumah_sakit` varchar(50) NOT NULL,
   `poli` varchar(50) NOT NULL,
   `kode_pegawai` varchar(50) NOT NULL,
-  `nama_pegawai` varchar(100) NOT NULL
+  `nama_pegawai` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `alasan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `surat_bpjs`
+-- Dumping data for table `surat_bpjs`
 --
 
-INSERT INTO `surat_bpjs` (`id`, `no_surat`, `tanggal_surat`, `kode_pasien`, `nama_pasien`, `umur`, `jenis_kelamin`, `alamat`, `no_kartu`, `kode_rumah_sakit`, `nama_rumah_sakit`, `poli`, `kode_pegawai`, `nama_pegawai`) VALUES
-(2, 'RUBPJS-17042020001', '2020-04-17', 'PSN-003', 'Siska', 15, 'Wanita', '<p>Jakarta</p>', '5555', 'RS-002', 'RS Siloam Hospital', 'Poli Gigi', '123', 'Eko Kurniadi');
+INSERT INTO `surat_bpjs` (`id`, `no_surat`, `tanggal_surat`, `kode_pasien`, `nama_pasien`, `umur`, `jenis_kelamin`, `alamat`, `no_kartu`, `kode_rumah_sakit`, `nama_rumah_sakit`, `poli`, `kode_pegawai`, `nama_pegawai`, `status`, `alasan`) VALUES
+(2, 'RUBPJS-17042020001', '2020-04-17', 'PSN-003', 'Siska', 15, 'Wanita', '<p>Jakarta</p>', '5555', 'RS-002', 'RS Siloam Hospital', 'Poli Gigi', '123', 'Eko Kurniadi', 'Baru', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat_umum`
+-- Table structure for table `surat_umum`
 --
 
 CREATE TABLE `surat_umum` (
@@ -375,25 +379,28 @@ CREATE TABLE `surat_umum` (
   `nama_pasien` varchar(100) NOT NULL,
   `umur` int(5) NOT NULL,
   `jenis_kelamin` varchar(20) NOT NULL,
-  `alamat` text NOT NULL,
+  `alamat` varchar(100) NOT NULL,
   `kode_rumah_sakit` varchar(50) NOT NULL,
   `nama_rumah_sakit` varchar(50) NOT NULL,
   `poli` varchar(50) NOT NULL,
   `kode_pegawai` varchar(50) NOT NULL,
-  `nama_pegawai` varchar(100) NOT NULL
+  `nama_pegawai` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `alasan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `surat_umum`
+-- Dumping data for table `surat_umum`
 --
 
-INSERT INTO `surat_umum` (`id`, `no_surat`, `tanggal_surat`, `kode_pasien`, `nama_pasien`, `umur`, `jenis_kelamin`, `alamat`, `kode_rumah_sakit`, `nama_rumah_sakit`, `poli`, `kode_pegawai`, `nama_pegawai`) VALUES
-(1, 'RU-UMUM-202004001', '2020-04-17', 'PSN-003', 'Siska', 15, 'Wanita', '<p>Jakarta</p>', 'RS-001', 'RS Baiturahim', 'Poli Gigi', '123', 'Eko Kurniadi');
+INSERT INTO `surat_umum` (`id`, `no_surat`, `tanggal_surat`, `kode_pasien`, `nama_pasien`, `umur`, `jenis_kelamin`, `alamat`, `kode_rumah_sakit`, `nama_rumah_sakit`, `poli`, `kode_pegawai`, `nama_pegawai`, `status`, `alasan`) VALUES
+(1, 'RU-UMUM-202004001', '2020-04-17', 'PSN-003', 'Siska', 15, 'Wanita', '<p>Jakarta</p>', 'RS-001', 'RS Baiturahim', 'Poli Gigi', '123', 'Eko Kurniadi', 'Baru', ''),
+(2, 'RU-UMUM-202007002', '2020-07-23', 'PSN-003', 'Siska', 0, 'Wanita', '<p>Jakarta</p>', 'RS-002', 'RS Siloam Hospital', 'Poli Gigi', '123', 'Eko Kurniadi', 'Baru', 'dsafaa');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -405,7 +412,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `role`) VALUES
@@ -416,221 +423,221 @@ INSERT INTO `user` (`id`, `nama`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `detail_diagnosa`
+-- Indexes for table `detail_diagnosa`
 --
 ALTER TABLE `detail_diagnosa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `detail_obat`
+-- Indexes for table `detail_obat`
 --
 ALTER TABLE `detail_obat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `detail_pemeriksaan`
+-- Indexes for table `detail_pemeriksaan`
 --
 ALTER TABLE `detail_pemeriksaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `detail_penyakit`
+-- Indexes for table `detail_penyakit`
 --
 ALTER TABLE `detail_penyakit`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `detail_umum`
+-- Indexes for table `detail_umum`
 --
 ALTER TABLE `detail_umum`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `diagnosa`
+-- Indexes for table `diagnosa`
 --
 ALTER TABLE `diagnosa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `obat`
+-- Indexes for table `obat`
 --
 ALTER TABLE `obat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pasien`
+-- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pasien_bpjs`
+-- Indexes for table `pasien_bpjs`
 --
 ALTER TABLE `pasien_bpjs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pemeriksaan_fisik`
+-- Indexes for table `pemeriksaan_fisik`
 --
 ALTER TABLE `pemeriksaan_fisik`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `penyakit`
+-- Indexes for table `penyakit`
 --
 ALTER TABLE `penyakit`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `poli`
+-- Indexes for table `poli`
 --
 ALTER TABLE `poli`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `rumah_sakit_rujukan`
+-- Indexes for table `rumah_sakit_rujukan`
 --
 ALTER TABLE `rumah_sakit_rujukan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `surat_bpjs`
+-- Indexes for table `surat_bpjs`
 --
 ALTER TABLE `surat_bpjs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `surat_umum`
+-- Indexes for table `surat_umum`
 --
 ALTER TABLE `surat_umum`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `detail_diagnosa`
+-- AUTO_INCREMENT for table `detail_diagnosa`
 --
 ALTER TABLE `detail_diagnosa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_obat`
+-- AUTO_INCREMENT for table `detail_obat`
 --
 ALTER TABLE `detail_obat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_pemeriksaan`
+-- AUTO_INCREMENT for table `detail_pemeriksaan`
 --
 ALTER TABLE `detail_pemeriksaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_penyakit`
+-- AUTO_INCREMENT for table `detail_penyakit`
 --
 ALTER TABLE `detail_penyakit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_umum`
+-- AUTO_INCREMENT for table `detail_umum`
 --
 ALTER TABLE `detail_umum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `diagnosa`
+-- AUTO_INCREMENT for table `diagnosa`
 --
 ALTER TABLE `diagnosa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `jabatan`
+-- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `obat`
+-- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `pasien`
+-- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `pasien_bpjs`
+-- AUTO_INCREMENT for table `pasien_bpjs`
 --
 ALTER TABLE `pasien_bpjs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `pemeriksaan_fisik`
+-- AUTO_INCREMENT for table `pemeriksaan_fisik`
 --
 ALTER TABLE `pemeriksaan_fisik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `penyakit`
+-- AUTO_INCREMENT for table `penyakit`
 --
 ALTER TABLE `penyakit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `poli`
+-- AUTO_INCREMENT for table `poli`
 --
 ALTER TABLE `poli`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `rumah_sakit_rujukan`
+-- AUTO_INCREMENT for table `rumah_sakit_rujukan`
 --
 ALTER TABLE `rumah_sakit_rujukan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `surat_bpjs`
+-- AUTO_INCREMENT for table `surat_bpjs`
 --
 ALTER TABLE `surat_bpjs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `surat_umum`
+-- AUTO_INCREMENT for table `surat_umum`
 --
 ALTER TABLE `surat_umum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
