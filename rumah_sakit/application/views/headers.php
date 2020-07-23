@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="<?php echo base_url('surat_bpjs')?>">
                             <i class="material-icons">notifications</i>
                             <span><p id="bpjs"></p></span>
                             <span>Rujukan BPJS</span>

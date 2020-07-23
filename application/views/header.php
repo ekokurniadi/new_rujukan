@@ -218,8 +218,10 @@ if($s==""){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('surat_umum')?>"><i class="fa fa-circle-o"></i>Surat Rujukan Pasien UMUM</a></li>
-            <li><a href="<?php echo base_url('surat_bpjs')?>"><i class="fa fa-circle-o"></i>Surat Rujukan Pasien BPJS</a></li>
+            <?php $total_umum=$this->db->query("SELECT * FROM surat_umum where status like'%Tolak%' or status like '%Terima'");?>
+            <?php $total_bpjs=$this->db->query("SELECT * FROM surat_bpjs where status like'%Tolak%' or status like '%Terima'");?>
+            <li><a href="<?php echo base_url('surat_umum')?>"><i class="fa fa-circle-o"></i>Rujukan Pasien UMUM <span class=" badge bg-red"><?php echo $total_umum->num_rows();?></span></a></li>
+            <li><a href="<?php echo base_url('surat_bpjs')?>"><i class="fa fa-circle-o"></i>Rujukan Pasien BPJS <span class=" badge bg-red"><?php echo $total_bpjs->num_rows();?></span></a></li>
           </ul>
         </li>
       

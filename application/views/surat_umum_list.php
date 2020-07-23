@@ -70,6 +70,8 @@
 		<th>Poli</th>
 		<!-- <th>Kode Pegawai</th> -->
 		<th>Nama Pegawai</th>
+		<th>Status</th>
+		<th>Alasan</th>
 		<th>Action</th>
             </tr>
             </thead><?php
@@ -91,6 +93,8 @@
 			<td><?php echo $surat_umum->poli ?></td>
 			<!-- <td><?php echo $surat_umum->kode_pegawai ?></td> -->
 			<td><?php echo $surat_umum->nama_pegawai ?></td>
+			<td><?php echo $surat_umum->status ?></td>
+			<td><?php echo $surat_umum->alasan ?></td>
 			<td style="text-align:center" width="150px">
 				<?php
 				echo anchor(site_url('surat_umum/update/'.$surat_umum->id),'<i class="fa fa-pencil-square-o"></i> Edit',array('title'=>'edit','class'=>'btn btn-warning btn-sm btn-flat')); 

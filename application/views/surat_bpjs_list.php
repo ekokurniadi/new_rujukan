@@ -71,6 +71,8 @@
 		<th>Poli</th>
 		<!-- <th>Kode Pegawai</th> -->
 		<th>Nama Pegawai</th>
+		<th>Status</th>
+		<th>Alasan</th>
 		<th>Action</th>
             </tr>
             </thead><?php
@@ -93,6 +95,8 @@
 			<td><?php echo $surat_bpjs->poli ?></td>
 			<!-- <td><?php echo $surat_bpjs->kode_pegawai ?></td> -->
 			<td><?php echo $surat_bpjs->nama_pegawai ?></td>
+			<td><?php echo $surat_bpjs->status ?></td>
+			<td><?php echo $surat_bpjs->alasan ?></td>
 			<td style="text-align:center"  width="150px;" >
 				<?php 
 				echo anchor(site_url('surat_bpjs/update/'.$surat_bpjs->id),'<i class="fa fa-pencil-square-o"></i> Edit',array('title'=>'edit','class'=>'btn btn-warning btn-sm btn-flat')); 
