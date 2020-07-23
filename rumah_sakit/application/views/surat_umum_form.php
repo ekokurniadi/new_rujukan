@@ -1,4 +1,3 @@
-
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -77,7 +76,7 @@
                 <div class="form-group"> 
                   <div class="form-line">  
                       <label for="alamat">Alamat <?php echo form_error('alamat') ?></label>
-                        <textarea class="form-control" rows="3" name="alamat" id="alamat" placeholder="Alamat"><?php echo $alamat; ?></textarea>
+                      <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $alamat; ?>" />
                   </div>
                 </div>
             </div>
@@ -132,7 +131,8 @@
                 <div class="form-line">  
                     <label for="status">Status <?php echo form_error('status') ?></label>
                     <select class="form-control" name="status" id="status">
-                      <option value="<?php echo $status; ?>" selected>Select an option</option>
+                      <option value="Terima">Terima</option>
+                      <option value="Tolak">Tolak</option>
                     </select>
                 </div>
               </div>
@@ -159,3 +159,7 @@
   </div>
 </div>
 </section>
+
+<script>
+var alamat = new FroalaEditor('#alamat')
+</script>

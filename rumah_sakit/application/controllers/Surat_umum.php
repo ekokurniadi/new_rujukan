@@ -168,10 +168,6 @@ class Surat_umum extends MY_Controller {
     public function update_action() 
     {
         $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('id', TRUE));
-        } else {
             $data = array(
 		'no_surat' => $this->input->post('no_surat',TRUE),
 		'tanggal_surat' => $this->input->post('tanggal_surat',TRUE),
@@ -192,7 +188,6 @@ class Surat_umum extends MY_Controller {
             $this->Surat_umum_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('surat_umum'));
-        }
     }
     
     public function delete($id) 

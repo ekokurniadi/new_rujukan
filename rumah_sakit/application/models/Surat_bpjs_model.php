@@ -18,8 +18,9 @@ class Surat_bpjs_model extends CI_Model
     // get all
     function get_all()
     {
+        $ko=$_SESSION['kode_rumah_sakit'];
         $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
+        return $this->db->query("select * from surat_bpjs where kode_rumah_sakit ='$ko' and status='Baru'")->result();
     }
 
     // get data by id
