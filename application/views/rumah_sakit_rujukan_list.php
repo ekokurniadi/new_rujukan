@@ -62,6 +62,8 @@
 		<th>Nama Rumah Sakit</th>
 		<th>Alamat</th>
 		<th>Terima Bpjs</th>
+		<th>Username</th>
+		<th>Password</th>
 		<th>Action</th>
             </tr>
             </thead><?php
@@ -75,6 +77,8 @@
 			<td><?php echo $rumah_sakit_rujukan->nama_rumah_sakit ?></td>
 			<td><?php echo $rumah_sakit_rujukan->alamat ?></td>
 			<td><?php echo $rumah_sakit_rujukan->terima_bpjs ?></td>
+			<td><?php echo $rumah_sakit_rujukan->username ?></td>
+			<td><?php echo sha1($rumah_sakit_rujukan->password) ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('rumah_sakit_rujukan/read/'.$rumah_sakit_rujukan->id),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-default btn-sm')); 

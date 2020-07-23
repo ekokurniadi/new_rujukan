@@ -1,4 +1,6 @@
-
+<body onload="selectText();">
+    
+</body>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -35,7 +37,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="varchar">Nama Rumah Sakit <?php echo form_error('nama_rumah_sakit') ?></label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="nama_rumah_sakit" id="nama_rumah_sakit" placeholder="Nama Rumah Sakit" value="<?php echo $nama_rumah_sakit; ?>" />
+                <input type="text" class="form-control" name="nama_rumah_sakit" id="nama_rumah_sakit" placeholder="Nama Rumah Sakit" value="<?php echo $nama_rumah_sakit; ?>" oninput="test()"/>
             </div>
         </div>
     </div>
@@ -62,7 +64,24 @@
             </div>
         </div>
     </div>
-	    
+	       
+    <div class="box-body"> 
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="varchar">Username <?php echo form_error('username') ?></label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
+            </div>
+        </div>
+    </div>
+       
+    <div class="box-body"> 
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="varchar">Password <?php echo form_error('password') ?></label>
+            <div class="col-sm-6">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
+            </div>
+        </div>
+    </div>
 <div class="box-footer">
     <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
 	    <button type="submit" class="btn btn-success"><?php echo $button ?></button> 
@@ -73,3 +92,13 @@
 </div>
 </div>
 </div>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="jquery.masknumber.js"></script>
+<script>
+function selectText() {
+  const input = document.getElementById('nama_rumah_sakit');
+  input.focus();
+  input.select();
+}
+
+</script>

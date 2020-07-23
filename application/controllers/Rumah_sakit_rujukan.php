@@ -78,6 +78,8 @@ class Rumah_sakit_rujukan extends MY_Controller {
 		'nama_rumah_sakit' => $row->nama_rumah_sakit,
 		'alamat' => $row->alamat,
 		'terima_bpjs' => $row->terima_bpjs,
+		'username' => $row->username,
+		'password' => $row->password,
 	    );
             $this->load->view('header');
             $this->load->view('rumah_sakit_rujukan_read', $data);
@@ -98,6 +100,8 @@ class Rumah_sakit_rujukan extends MY_Controller {
 	    'nama_rumah_sakit' => set_value('nama_rumah_sakit'),
 	    'alamat' => set_value('alamat'),
 	    'terima_bpjs' => set_value('terima_bpjs'),
+	    'username' => set_value('username'),
+	    'password' => set_value('password'),
 	);
         $data['kode']=$this->kode();
         $this->load->view('header');
@@ -117,6 +121,8 @@ class Rumah_sakit_rujukan extends MY_Controller {
 		'nama_rumah_sakit' => $this->input->post('nama_rumah_sakit',TRUE),
 		'alamat' => $this->input->post('alamat',TRUE),
 		'terima_bpjs' => $this->input->post('terima_bpjs',TRUE),
+		'username' => $this->input->post('username',TRUE),
+		'password' => $this->input->post('password',TRUE),
 	    );
 
             $this->Rumah_sakit_rujukan_model->insert($data);
@@ -153,6 +159,8 @@ class Rumah_sakit_rujukan extends MY_Controller {
 		'nama_rumah_sakit' => set_value('nama_rumah_sakit', $row->nama_rumah_sakit),
 		'alamat' => set_value('alamat', $row->alamat),
 		'terima_bpjs' => set_value('terima_bpjs', $row->terima_bpjs),
+		'username' => set_value('username', $row->username),
+		'password' => set_value('password', $row->password),
 	    );
             $this->load->view('header');
             $this->load->view('rumah_sakit_rujukan_form', $data);
@@ -175,6 +183,8 @@ class Rumah_sakit_rujukan extends MY_Controller {
 		'nama_rumah_sakit' => $this->input->post('nama_rumah_sakit',TRUE),
 		'alamat' => $this->input->post('alamat',TRUE),
 		'terima_bpjs' => $this->input->post('terima_bpjs',TRUE),
+		'username' => $this->input->post('username',TRUE),
+		'password' => $this->input->post('password',TRUE),
 	    );
 
             $this->Rumah_sakit_rujukan_model->update($this->input->post('id', TRUE), $data);
@@ -203,6 +213,8 @@ class Rumah_sakit_rujukan extends MY_Controller {
 	$this->form_validation->set_rules('nama_rumah_sakit', 'nama rumah sakit', 'trim|required');
 	$this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
 	$this->form_validation->set_rules('terima_bpjs', 'terima bpjs', 'trim|required');
+	$this->form_validation->set_rules('username', 'username', 'trim|required');
+	$this->form_validation->set_rules('password', 'password', 'trim|required');
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

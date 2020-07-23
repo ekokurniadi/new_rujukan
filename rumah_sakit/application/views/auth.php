@@ -30,15 +30,15 @@
     <div class="logo" style="align:center;">
     <table style="margin-left:120px;margin-bottom:-20px;" >
         <tr>
-            <td width="320px;"><img src="<?php echo base_url().'images/logo.png';?>" width="100px;" alt=""> </td>
+            <!-- <td width="320px;"><img src="<?php echo base_url().'images/logo.png';?>" width="100px;" alt=""> </td> -->
         </tr>
     </table>
                
         </div>
         <div class="logo">
            
-            <a href="javascript:void(0);">Smart Fish <b>Feeder</b></a>
-            <small>Aplikasi Internet Of Thing pemberi pakan ikan otomatis</small>
+            <a href="javascript:void(0);">Rumah Sakit Rujukan<b></b></a>
+            <!-- <small>Aplikasi Internet Of Thing pemberi pakan ikan otomatis</small> -->
         </div>
         <div class="card">
             <div class="body">

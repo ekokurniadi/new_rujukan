@@ -8,44 +8,41 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-      $dat=$this->db->query("select jumlah AS jumlah from pakan")->row_array();
-      $schedule=$this->db->query("select * from jadwal where status_kirim='close' and status=1 order by id DESC limit 1")->row_array();
+     
       $data=array(
-        'user'=>$this->db->query("SELECT * FROM user"),
-        'jumlah'=>$dat,
-        'schedule'=>$schedule
+        
       );
 
       $this->load->view('headers');  
-      $this->load->view('index',$data);  
+      // $this->load->view('index');  
       $this->load->view('footers');  
     }
 
-    public function api_pakan()
+    public function cek_umum()
     {
-      $data=$this->db->query("select jumlah AS jumlah from pakan")->result();
+      $kode_rumah_sakit=$_SESSION['kode_rumah_sakit'];
+      $data=$this->db->query("select count(*) AS total from surat_umum where status='Baru' and kode_rumah_sakit ='$kode_rumah_sakit'")->result();
       foreach($data as $dd)
       {
         $data =array(
-          'jumlah'=>$dd->jumlah,  
-          'jumlah'=>$dd->jumlah,  
-          'jumlah'=>$dd->jumlah,  
+          'total'=>$dd->total,  
         );
          echo json_encode($data);
       }
     }
 
-    public function cek_pakan(){
-      $cek=$this->db->query("select * from pakan order by id DESC limit 1")->result();
-      foreach($cek as $dd)
+    public function cek_bpjs()
+    {
+      $kode_rumah_sakit=$_SESSION['kode_rumah_sakit'];
+      $data=$this->db->query("select count(*) AS total_bpjs from surat_bpjs where status='Baru' and kode_rumah_sakit ='$kode_rumah_sakit'")->result();
+      foreach($data as $dd)
       {
-          $cek =array(
-              'jumlah'=>$dd->jumlah,  
-          );
-            echo json_encode($cek);
-         
+        $data =array(
+          'total_bpjs'=>$dd->total_bpjs,  
+        );
+         echo json_encode($data);
       }
-  }
+    }
 
 }
 

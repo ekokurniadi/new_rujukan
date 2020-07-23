@@ -55,7 +55,7 @@
 </head>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-<body class="theme-pink" onload="updates();realtimes();cek();">
+<body class="theme-pink" onload="realtimes();">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -95,7 +95,7 @@
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html"><span>Smart Fish Feeder</span></a><img src="<?php echo base_url().'images/logo.png';?>" width="40px;" alt="">
+                <a class="navbar-brand" href="index.html"><span>Rumah Sakit Rujukan</span></a>
              
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -116,11 +116,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="<?php echo base_url().'images/'.$_SESSION['foto']?>" width="48" height="48" alt="User" />
+                    <img src="<?php echo base_url().'images/user.png'?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo strtoupper($_SESSION['username']);?></div>
-                    <div class="email"><?php echo strtoupper($_SESSION['nama']);?></div>
+                    <div class="email"><?php echo strtoupper($_SESSION['nama_rumah_sakit']);?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">keyboard_arrow_down</i>
@@ -143,26 +143,30 @@
                             <span>Home</span>
                         </a>
                     </li>
+                    <?php if($_SESSION['terima_bpjs']=='YA'){?>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">swap_calls</i>
-                            <span>Master</span>
+                        <a href="<?php echo base_url('surat_umum')?>">
+                            <i class="material-icons">notifications</i>
+                            <span><p id="umum"></p></span>
+                            <span>Rujukan UMUM</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="<?php echo base_url('user')?>">Pengguna</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('jadwal')?>">Jadwal</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('pakan')?>">Pakan</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('ikan')?>">Ikan</a>
-                            </li>
-                        </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons">notifications</i>
+                            <span><p id="bpjs"></p></span>
+                            <span>Rujukan BPJS</span>
+                        </a>
+                    </li>
+                    <?php } else { ?>
+                        <li>
+                        <a href="<?php echo base_url('surat_umum')?>">
+                            <i class="material-icons">notifications</i>
+                            <span><p id="umum"></p></span>
+                            <span>Rujukan UMUM</span>
+                        </a>
+                    </li>
+                    <?php } ?>
                     <li>
                         <a href="<?php echo base_url('auth/logout')?>">
                             <i class="material-icons">lock</i>
@@ -176,7 +180,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-             Copyright &copy;<?php echo date('Y')?> <a href="javascript:void(0);">Smart Fish Feeder</a>.
+             Copyright &copy;<?php echo date('Y')?> <a href="javascript:void(0);">Rumah Sakit Rujukan</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
@@ -185,41 +189,35 @@
             <!-- #Footer -->
         </aside>
     </section>
-
-    <script type="text/javascript">
-    function updates(){
+<script type="text/javascript">
+    function realtimes(){
         setInterval(() => {
-            cronjobs();
-        }, 1000);
+            realt();
+            realt2();
+        }, 500);
     }
-    function cek(){
-        setInterval(() => {
-            cek_pakan();
-        }, 100);
-    }
-    function cronjobs(){
-                $.ajax({      
-                    method: "post",      
-                    url: "<?php echo base_url('jadwal/auto_update')?>",
-                    dataType:'json',  
-                    data: {} 
-                });  
+  function realt(){
+            $.ajax({      
+                method: "post",      
+                url: "<?php echo base_url('dashboard/cek_umum')?>",
+                dataType:'json',  
+                data: {} 
+            })
+                .done(function(hasilajax) {   
+                   var jm = document.getElementById('umum');
+                   jm.innerHTML = hasilajax.total;    
+                });
             }
-    function cek_pakan(){
-        $.ajax({      
-            method: "GET",      
-            url: "<?php echo base_url('dashboard/cek_pakan')?>",
-            dataType:'json',  
-            data: {} 
-        })
-        .done(function(parsing) { 
-                if(parsing.jumlah <=10) {
-                   var ah = document.getElementById('ahak');
-                   ah.innerHTML = "<div class='alert bg-pink alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>Stok Pakan hampir habis<div>"; 
-                } else {
-                    var ah = document.getElementById('ahak').hide();
-                }   
-        }); 
-        
-    }
+            function realt2(){
+            $.ajax({      
+                method: "post",      
+                url: "<?php echo base_url('dashboard/cek_bpjs')?>",
+                dataType:'json',  
+                data: {} 
+            })
+                .done(function(hasilajax2) {   
+                   var jm = document.getElementById('bpjs');
+                   jm.innerHTML = hasilajax2.total_bpjs;    
+                });
+            }
     </script>
