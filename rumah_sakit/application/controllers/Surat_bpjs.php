@@ -63,7 +63,9 @@ class Surat_bpjs extends MY_Controller {
 		'nama_rumah_sakit' => $row->nama_rumah_sakit,
 		'poli' => $row->poli,
 		'kode_pegawai' => $row->kode_pegawai,
-		'nama_pegawai' => $row->nama_pegawai,
+        'nama_pegawai' => $row->nama_pegawai,
+        'status' => $row->status,
+		'alasan' => $row->alasan,
 	    );
            $this->load->view('headers');
             $this->load->view('surat_bpjs_read', $data);
@@ -92,7 +94,9 @@ class Surat_bpjs extends MY_Controller {
 	    'nama_rumah_sakit' => set_value('nama_rumah_sakit'),
 	    'poli' => set_value('poli'),
 	    'kode_pegawai' => set_value('kode_pegawai'),
-	    'nama_pegawai' => set_value('nama_pegawai'),
+        'nama_pegawai' => set_value('nama_pegawai'),
+        'status' => set_value('status'),
+	    'alasan' => set_value('alasan'),
 	);
 
        $this->load->view('headers');
@@ -120,7 +124,9 @@ class Surat_bpjs extends MY_Controller {
 		'nama_rumah_sakit' => $this->input->post('nama_rumah_sakit',TRUE),
 		'poli' => $this->input->post('poli',TRUE),
 		'kode_pegawai' => $this->input->post('kode_pegawai',TRUE),
-		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
+        'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
+        'status' => $this->input->post('status',TRUE),
+		'alasan' => $this->input->post('alasan',TRUE),
 	    );
 
             $this->Surat_bpjs_model->insert($data);
@@ -150,7 +156,9 @@ class Surat_bpjs extends MY_Controller {
 		'nama_rumah_sakit' => set_value('nama_rumah_sakit', $row->nama_rumah_sakit),
 		'poli' => set_value('poli', $row->poli),
 		'kode_pegawai' => set_value('kode_pegawai', $row->kode_pegawai),
-		'nama_pegawai' => set_value('nama_pegawai', $row->nama_pegawai),
+        'nama_pegawai' => set_value('nama_pegawai', $row->nama_pegawai),
+        'status' => set_value('status', $row->status),
+		'alasan' => set_value('alasan', $row->alasan),
 	    );
            $this->load->view('headers');
             $this->load->view('surat_bpjs_form', $data);
@@ -163,11 +171,7 @@ class Surat_bpjs extends MY_Controller {
     
     public function update_action() 
     {
-        $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('id', TRUE));
-        } else {
+       
             $data = array(
 		'no_surat' => $this->input->post('no_surat',TRUE),
 		'tanggal_surat' => $this->input->post('tanggal_surat',TRUE),
@@ -181,13 +185,14 @@ class Surat_bpjs extends MY_Controller {
 		'nama_rumah_sakit' => $this->input->post('nama_rumah_sakit',TRUE),
 		'poli' => $this->input->post('poli',TRUE),
 		'kode_pegawai' => $this->input->post('kode_pegawai',TRUE),
-		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
+        'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
+        'status' => $this->input->post('status',TRUE),
+		'alasan' => $this->input->post('alasan',TRUE),
 	    );
 
             $this->Surat_bpjs_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('surat_bpjs'));
-        }
     }
     
     public function delete($id) 

@@ -135,6 +135,27 @@
                 </div>
               </div>
             </div>
+            
+            <div class="col-sm-12">  
+              <div class="form-group"> 
+                <div class="form-line">  
+                    <label for="status">Status <?php echo form_error('status') ?></label>
+                    <select class="form-control" name="status" id="status">
+                      <option value="Terima">Terima</option>
+                      <option value="Tolak">Tolak</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+	 
+            <div class="col-sm-12">  
+                <div class="form-group"> 
+                  <div class="form-line">  
+                      <label for="alasan">Alasan <?php echo form_error('alasan') ?></label>
+                        <textarea class="form-control" rows="3" name="alasan" id="alasan" placeholder="Alasan"><?php echo $alasan; ?></textarea>
+                  </div>
+                </div>
+            </div>
 	   
             <br>
             <div class="card-footer text-left">

@@ -46,6 +46,8 @@
 		<th>Poli</th>
 		<th>Kode Pegawai</th>
 		<th>Nama Pegawai</th>
+        <th>Status</th>
+		<th>Alasan</th>
 		<th>Action</th>
       </tr>
       </thead>
@@ -68,6 +70,8 @@
 			<td><?php echo $surat_bpjs->poli ?></td>
 			<td><?php echo $surat_bpjs->kode_pegawai ?></td>
 			<td><?php echo $surat_bpjs->nama_pegawai ?></td>
+            <td><?php echo $surat_bpjs->status ?></td>
+			<td><?php echo $surat_bpjs->alasan ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('surat_bpjs/read/'.$surat_bpjs->id),'<i class="material-icons">view_column</i>',array('title'=>'detail','class'=>'btn btn-icon icon-left btn-light')); 
