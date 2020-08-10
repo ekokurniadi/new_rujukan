@@ -254,9 +254,9 @@
             <div id="list_ku3" class="table-responsive"></div>
             </div>
             
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
             <div id="list_ku4" class="table-responsive"></div>
-            </div>
+            </div> -->
         </div>
     </div>
     

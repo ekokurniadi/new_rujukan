@@ -23,6 +23,7 @@
 		<th>Kode Pasien</th>
 		<th>No Identitas</th>
 		<th>Kategori Pasien</th>
+		<th>No Bpjs</th>
 		<th>Nama Pasien</th>
 		<th>Jenis Kelamin</th>
 		<th>Usia</th>
@@ -39,6 +40,7 @@
 		      <td><?php echo $pasien->kode_pasien ?></td>
 		      <td><?php echo $pasien->no_identitas ?></td>
 		      <td><?php echo $pasien->kategori_pasien ?></td>
+		      <td><?php echo $pasien->no_bpjs ?></td>
 		      <td><?php echo $pasien->nama_pasien ?></td>
 		      <td><?php echo $pasien->jenis_kelamin ?></td>
 		      <td><?php echo $pasien->usia ?></td>

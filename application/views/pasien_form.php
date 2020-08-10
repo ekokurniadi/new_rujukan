@@ -37,7 +37,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="varchar">No Identitas <?php echo form_error('no_identitas') ?></label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="no_identitas" id="no_identitas" placeholder="No Identitas" value="<?php echo $no_identitas; ?>" />
+                <input type="text" class="form-control" name="no_identitas" id="no_identitas" placeholder="No Identitas" value="<?php echo $no_identitas; ?>" onkeypress="return hanyaAngka(event)" />
             </div>
         </div>
     </div>
@@ -99,7 +99,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="double">Usia <?php echo form_error('usia') ?></label>
             <div class="col-sm-6">
-                <input type="number" class="form-control" name="usia" id="usia" placeholder="Usia" value="<?php echo $usia; ?>" />
+                <input type="number" class="form-control" name="usia" id="usia" placeholder="Usia" value="<?php echo $usia; ?>" onkeypress="return hanyaAngka(event)"/>
             </div>
         </div>
     </div>
@@ -181,3 +181,11 @@ function cek_kategori(){
 }
 }
 </script>
+<script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>

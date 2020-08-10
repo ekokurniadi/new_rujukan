@@ -235,7 +235,8 @@ if($s==""){
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('laporan_pdf/cetak_user')?>"target="_blank"><i class="fa fa-file-pdf-o"></i> Laporan Data User</a></li>
-            <li><a href="<?php echo base_url('laporan_pdf/cetak_data_pasien')?>" target="_blank"><i class="fa fa-file-pdf-o"></i> Laporan Data Pasien</a></li>
+            <li><a href="<?php echo base_url('laporan_pdf/cetak_data_pasien_u')?>" target="_blank"><i class="fa fa-file-pdf-o"></i> Data Pasien Umum</a></li>
+            <li><a href="<?php echo base_url('laporan_pdf/cetak_data_pasien_b')?>" target="_blank"><i class="fa fa-file-pdf-o"></i> Data Pasien BPJS</a></li>
           </ul>
         </li>
          <li>
